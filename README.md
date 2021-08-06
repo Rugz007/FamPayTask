@@ -22,6 +22,9 @@ The assignment is to implement a back-end which constantly fetches latest videos
 
 - [RabbitMQ](https://www.rabbitmq.com)
 
+## System Architecture
+![Images](https://i.imgur.com/6BCx5D0.png)
+
 ## Prerequisites
 - [Docker](https://docs.docker.com/get-docker/)
 

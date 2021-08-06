@@ -16,8 +16,6 @@ def fetch_videos():
     if api_key is None:
         print("No API Key")
         return
-    else:
-        print(api_key)
     youtube = googleapiclient.discovery.build(
         settings.YOUTUBE_SERVICE_NAME,
         settings.YOUTUBE_API_VERSION,
@@ -27,7 +25,7 @@ def fetch_videos():
     if video is not None:
         published_after = video.published_at.replace(tzinfo=None)
     else:
-        published_after = datetime.datetime.utcnow() - datetime.timedelta(minutes=30)
+        published_after = datetime.datetime.utcnow() - datetime.timedelta(minutes=60)
     published_after = published_after.isoformat("T") + "Z"
     next_page_token = None
     while True:
@@ -48,7 +46,6 @@ def fetch_videos():
             if len(response["items"]) == 0:
                 return
             for video in response["items"]:
-                print("Fetching")
                 try:
                     video = Video.objects.get(video_id=video["id"]["videoId"])
                 except:

@@ -24,8 +24,7 @@ def fetch_videos():
     if video is not None:
         published_after = video.published_at.replace(tzinfo=None)
     else:
-        published_after = datetime.datetime.utcnow() - datetime.timedelta(
-            minutes=60)
+        published_after = datetime.datetime.utcnow() - datetime.timedelta(minutes=60)
     published_after = published_after.isoformat("T") + "Z"
     next_page_token = None
 
@@ -34,7 +33,7 @@ def fetch_videos():
         try:
             response = (
                 youtube.search()
-                    .list(
+                .list(
                     part="snippet",
                     maxResults=25,
                     q=settings.YOUTUBE_KEYWORD,
@@ -43,21 +42,20 @@ def fetch_videos():
                     pageToken=next_page_token,
                     order="date",
                 )
-                    .execute()
+                .execute()
             )
             if len(response["items"]) == 0:
                 return
             for video in response["items"]:
                 try:
                     video = Video.objects.get(video_id=video["id"]["videoId"])
-                except:
+                except Video.DoesNotExist:
                     video = Video(
                         video_id=video["id"]["videoId"],
                         title=video["snippet"]["title"],
                         description=video["snippet"]["description"],
                         channel_title=video["snippet"]["channelTitle"],
-                        thumbnail_url=
-                        video["snippet"]["thumbnails"]["default"]["url"],
+                        thumbnail_url=video["snippet"]["thumbnails"]["default"]["url"],
                         published_at=video["snippet"]["publishTime"],
                     )
                     video.save()

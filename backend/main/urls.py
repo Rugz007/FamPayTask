@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from .views import VideosViewSet
 
 urlpatterns = [
     path('create/', VideosViewSet.as_view({'get': 'list_videos'}),

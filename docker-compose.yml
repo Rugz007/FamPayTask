@@ -31,7 +31,7 @@ services:
     ports: [ ]
     depends_on:
       - rabbitmq
-  
+
   celery-beat:
     <<: *backend
     container_name: celery-beat

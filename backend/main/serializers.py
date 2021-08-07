@@ -12,7 +12,3 @@ class VideoSerializer(serializers.ModelSerializer):
             "published_at",
             "thumbnail_url",
         ]
-
-
-class SearchSerializer(serializers.Serializer):
-    text = serializers.CharField()

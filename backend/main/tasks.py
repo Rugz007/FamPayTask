@@ -11,7 +11,7 @@ def fetch_videos():
     # Fetching an API Key from the database
     api_key = APIKey.objects.all().first()
     if api_key is None:
-        print("No API Key")
+        print("No API Key. Please add one from Django Admin")
         return
     youtube = googleapiclient.discovery.build(
         settings.YOUTUBE_SERVICE_NAME,
@@ -66,6 +66,6 @@ def fetch_videos():
         except HttpError as e:
             if e.resp["status"] == "403":
                 # Deleting API key which is exhausted until 1 API key is left.
-                if APIKey.objects.all().count() > 1:
+                if APIKey.objects.all().count() >= 1:
                     api_key.delete()
                 return

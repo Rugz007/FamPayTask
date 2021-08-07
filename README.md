@@ -47,3 +47,6 @@ docker-compose build
 ```bash
 docker-compose up
 ```
+## Note
+- Admin user with username as *admin* and password as *admin* is created.
+- Query for fetching the videos can be changed in Django settings.

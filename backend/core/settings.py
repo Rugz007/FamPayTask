@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-41)ji$63h!-b85apl!4yfb#3p_orgl)_ra)ls!5oq2xdrd=h8@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -101,7 +101,7 @@ YOUTUBE_API_VERSION = "v3"
 
 YOUTUBE_KEYWORD = "gaming"
 
-CELERY_TIMEZONE = "Asia/Kolkata"
+CELERY_TIMEZONE = "UTC"
 
 CELERY_TASK_TRACK_STARTED = True
 
@@ -115,7 +115,7 @@ CELERY_BEAT_SCHEDULE = {
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 4,
+    "PAGE_SIZE": 20,
 }
 
 LANGUAGE_CODE = "en-us"

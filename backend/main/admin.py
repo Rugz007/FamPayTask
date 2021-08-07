@@ -5,7 +5,7 @@ from .models import APIKey, Video
 # Register your models here.
 
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['title', 'channel_title']
+    list_display = ['title', 'channel_title','published_at']
 
 
 class APIKeyAdmin(admin.ModelAdmin):

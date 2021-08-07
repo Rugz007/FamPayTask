@@ -10,7 +10,6 @@ class VideosViewSet(viewsets.ModelViewSet):
     parser_classes = (FormParser, JSONParser)
     serializer_class = VideoSerializer
     queryset = Video.objects.all()
-    viewsets.ModelViewSet.pagination_class.page_size = 10
     
     @swagger_auto_schema(responses={200: VideoSerializer})
     def list_videos(self, request):

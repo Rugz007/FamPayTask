@@ -48,7 +48,7 @@ docker-compose build
 docker-compose up
 ```
 
-5. Visit django-admin at ```localhost/admin/```, login using credentials below and add API keys for celery to start fetching videos.
+5. Visit django-admin at ```localhost:8000/admin/```, login using credentials below and add API keys for celery to start fetching videos.
 ## Note
 - Admin user with username as *admin* and password as *admin* is created.
 - Query for fetching the videos can be changed in Django settings.

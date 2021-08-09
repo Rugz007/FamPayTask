@@ -1,4 +1,4 @@
-# FamPay Assignment
+YouTubeVideoAPI
 [![CodeFactor](https://www.codefactor.io/repository/github/rugz007/fampaytask/badge/master?s=0da46bcb1d77bcc7bb229632a6e590aace20b933)](https://www.codefactor.io/repository/github/rugz007/fampaytask/overview/master)
 
 The assignment is to implement a back-end which constantly fetches latest videos of a certain defined keyword using the YouTube Data API.

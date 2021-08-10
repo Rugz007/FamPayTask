@@ -20,7 +20,7 @@ class VideosViewSet(viewsets.ModelViewSet):
         if videos.exists():
             page = self.paginate_queryset(videos)
             if page is not None:
-                serialized = VideoSerializer(videos, many=True)
+                serialized = VideoSerializer(page, many=True)
                 return self.get_paginated_response(serialized.data)
         return Response(status=http_status.HTTP_404_NOT_FOUND)
 
@@ -41,6 +41,6 @@ class VideosViewSet(viewsets.ModelViewSet):
         videos = videos.order_by("-published_at")
         page = self.paginate_queryset(videos)
         if page is not None:
-            serialized = VideoSerializer(videos, many=True)
+            serialized = VideoSerializer(page, many=True)
             return self.get_paginated_response(serialized.data)
         return Response(status=http_status.HTTP_404_NOT_FOUND)
